@@ -21,7 +21,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tf2pulumi/convert"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tf2pulumi/convert"
 	"github.com/spf13/cobra"
 
 	"github.com/pulumi/tf2pulumi/version"
@@ -93,6 +93,8 @@ Pulumi TypeScript program that describes the same resource graph.`,
 		"allows code generation to continue if there are errors extracting comments")
 	flag.BoolVar(&opts.AnnotateNodesWithLocations, "record-locations", false,
 		"annotate the generated code with original source locations for each resource")
+	flag.BoolVar(&opts.ConvertToComponentResource, "convert-to-component-resource", false,
+		"converts the project to a Pulumi Component Resource if true, and to a standard program if false")
 	flag.BoolVar(&tarout, "tar", false,
 		"generate a TAR archive to stdout instead of writing to the filesystem")
 	flag.StringVar(&resourceNameProperty, "filter-resource-names", "",
